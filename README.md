@@ -1,6 +1,12 @@
 # Pig Latin Translator
 
-## SETUP
+This is a simple Pig Latin translator the I created for school.
+
+## To-Do List
+
+- [ ] Create Pig Latin Translator
+
+## Setup
 
 > [!NOTE]
 > Though not required as the project is built only using internal packages.

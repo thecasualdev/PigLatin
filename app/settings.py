@@ -20,6 +20,7 @@ def generate_config():
     config.add_section("output")
 
     config.set("general", "y_check", "True")
+    config.set("general", "auto_run", "True") 
     config.set("output", "directory", "./output")
 
     with open("config.init", 'w') as file:
@@ -34,7 +35,7 @@ def load_config():
         
     else:
 
-        draw.text_output("No config found.")
+        draw.text_output("No config found")
         
         check = str.lower(draw.text_input("Do you wish to run config generator? [y/n]"))
 

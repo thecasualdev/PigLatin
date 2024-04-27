@@ -1,7 +1,7 @@
 
 # This is the main script of the 
 
-from . import draw, setup
+from . import draw, settings
 
 import argparse
 
@@ -24,7 +24,7 @@ class app:
 
     if args.setup:
         draw.text_output("Generating defualt files...")
-        setup.generate_config()
+        settings.generate_config()
         exit()
 
-    print("Howdy")
+    config = settings.load_config()

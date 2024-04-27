@@ -6,7 +6,7 @@ This is a simple Pig Latin translator the I created for school.
 
 - [ ] Create Pig Latin Translator
 - [x] Custom draw module to allow for simple, yet consitance outputs
-- [ ] Config reading and generating
+- [x] Config reading and generating
 - [ ] Simple module to toggle Y checking (allows the script to differentiate between Y as a vowel & Y as a consonant)
 - [ ] Output file, or custom destination
 

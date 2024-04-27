@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Unique files to project
+output
+.config
+
 # C extensions
 *.so
 

@@ -5,11 +5,16 @@
 def text_output (content) :
     print ("# " + str(content))
 
-def text_input (content:str) :
+def text_input (content) :
     value = input("# " + str(content) + " > ") 
     return value
 
 def progress_bar (progress, total) :
+
     percent = 100 * (progress / float(total)) 
-    bar = '▮' * int(percent) + '▯' * (100 - int(percent)) 
+    bar = '▮' * int(percent) + '▯' * (100 - int(percent))
+
     print(f"\r# [{bar}] {int(percent)}%", end='\r')
+
+    if progress == total :
+        print(f"\r# [{bar}] {int(percent)}% DONE!!")

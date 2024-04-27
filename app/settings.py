@@ -36,7 +36,13 @@ def load_config():
 
         draw.text_output("No config found.")
         
-        check = draw.text_input("Do you wish to generate")
+        check = str.lower(draw.text_input("Do you wish to run config generator? [y/n]"))
+
+        if check == 'y' or check == 'yes':
+            draw.text_output("Generating defualt files...")
+            generate_config()
+            draw.text_output("Setup completed, you can now run `py piglatin.py` again")
+            exit()
 
         exit()
 

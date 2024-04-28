@@ -1,56 +1,22 @@
 
 # This is the main translate file for the application
-# Created by TheCasualDev
-# v 1.0
+# Created by TheCasualDev (Jack M.)
+# v2.0
 
 from . import draw
 
 import time
 import os
+import re
 
 vowels = ['a', 'e', 'i', 'o', 'u']
 
-def ychecker(input):
-    print(input)
-
 def string(input:str, y_check:bool):
 
+    # Runs at the start of the function, creating a checkpoint for current time and a empty list
     start_time = time.time()
-
     result = []
-    sentance = input.split(" ")
-    
-    draw.progress_bar(0, len(sentance))
 
-    for index, word in enumerate(sentance):
-    
-        draw.progress_bar(index + 1, len(sentance))
+    # Splits the string into a list, seperating the result with the regular expression operator
+    sentance = re.findall(r'\w+', input) # w checks for alphanumeric characters
 
-        has_vowel = False
-
-        for index in range(len(word)):
-            
-            if word[0] in vowels:
-                result.append(word + 'ay')
-                break
-            
-            else:
-
-                if word[index] in vowels:
-                    result.append(word[index:] + word[:index] + 'ay')
-                    has_vowel = True
-                    break
-
-                if (has_vowel == False and index == len(word)-1):
-                    result.append(word + 'ay')
-
-    draw.text_output("Translated string in " + str(time.time() - start_time) + "ms")
-    return str.capitalize(' '.join(result))
-
-def document(input:str, y_check:bool):
-
-    start_time = time.time()
-
-    result = ""
-
-    return result

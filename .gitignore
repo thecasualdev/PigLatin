@@ -6,6 +6,9 @@ __pycache__/
 # Unique files to project
 output
 *.init
+test.txt
+test2.txt
+test3.txt
 
 # C extensions
 *.so

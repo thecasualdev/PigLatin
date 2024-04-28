@@ -3,7 +3,7 @@
 # Created by TheCasualDev (Jack M.)
 # v2.0
 
-from . import draw
+from . import draw, settings
 
 import time
 import os
@@ -63,3 +63,28 @@ def string(input:str, y_check:bool, check_time:bool):
     
     # Returns the final result as a string
     return str.capitalize(' '.join(result))
+
+def file(input:str, output:str, y_check:bool):
+
+    # Runs at the start of the function, creating a checkpoint for current time and a empty list
+    start_time = time.time()
+
+    config = settings.load_config()   
+    output = output or config.get('output', 'directory')
+
+    # First we do some basic checks, veryfying the exsistance of the provided files
+    if not os.path.exists(input):
+        draw.text_output("File could not be found")
+        draw.text_output("Please try again")
+        exit()
+    
+    if not os.path.exists(input):
+        draw.text_output("Could not find provided output file")
+        draw.text_output("Generating now...")
+        os.mkdir('./output')
+        exit()
+
+    # Followed with making sure that the file is the correct file type
+    extension:str = os.path.splitext(input)[-1].lower()
+    if not extension == '.txt':
+        draw.text_output("File is not supported, please make sure file is a txt")

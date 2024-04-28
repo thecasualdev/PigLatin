@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-S', '--string', help="Used to translate a single string")
 parser.add_argument('-F', '--file', help="Used to translate entire files, only supports .txt")
-parser.add_argument('-y', '--ycheck', help="Toggle the function that differentiates between Y as a vowel & Y as a consonant")
+parser.add_argument('-y', '--ycheck', action=argparse.BooleanOptionalAction, help="Toggle the function that differentiates between Y as a vowel & Y as a consonant")
 parser.add_argument('-o', '--output', help="Set a unique output location (used for translating files)")
 parser.add_argument('-s', '--setup', help="Used to generate defualt config file and output folder", action="store_true")
 
@@ -72,7 +72,7 @@ class app:
             draw.text_output("Starting translation" + args.file)
 
         result = translate.file(args.file, args.output, y_check)
-#        draw.text_output("Translation and can be found at ::" + result)
+        draw.text_output("Translation and can be found at ::" + result.name)
         exit()
 
     draw.text_output(output)

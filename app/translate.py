@@ -18,12 +18,15 @@ def string(input:str, y_check:bool, check_time:bool):
     # Splits the string into a list, seperating the result with the regular expression operator
     sentance = re.findall(r'\w+', str.lower(input)) # w checks for alphanumeric characters
 
-    draw.progress_bar(0, len(sentance))
+    if check_time:
+        draw.progress_bar(0, len(sentance))
 
     # Begins the main loop, using the enumerate object to get a counter
     for i, word in enumerate(sentance):
 
-        draw.progress_bar(i + 1, len(sentance))
+        if check_time:
+            draw.progress_bar(i + 1, len(sentance))
+
         vowel:bool = False
 
         # Allows us too loop through a word checking each for the following rules
@@ -78,13 +81,34 @@ def file(input:str, output:str, y_check:bool):
         draw.text_output("Please try again")
         exit()
     
-    if not os.path.exists(input):
+    if not os.path.exists(output):
         draw.text_output("Could not find provided output file")
-        draw.text_output("Generating now...")
-        os.mkdir('./output')
+        if not os.path.exists('./output'):
+            draw.text_output("Generating now...")
+            os.mkdir('./output')
         exit()
 
     # Followed with making sure that the file is the correct file type
-    extension:str = os.path.splitext(input)[-1].lower()
-    if not extension == '.txt':
+    file = os.path.basename(input)
+    name, extension = os.path.splitext(file)
+    
+    if not extension.lower() == '.txt':
         draw.text_output("File is not supported, please make sure file is a txt")
+
+    draw.text_output("Opening file")
+
+    file_open = open(input, 'r')
+    file_result = open(output + "/" + name + "_piglatin.txt", 'w')
+
+    for sentance in file_open:
+        translated = string(sentance, y_check, False)
+        file_result.write(translated + '\n')
+    
+    draw.text_output("Writing to file")
+
+    file_open.close
+    file_result.close
+
+    draw.text_output("Translated file in " + str(time.time() - start_time) + "ms")
+
+    return file_result

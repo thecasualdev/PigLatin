@@ -61,4 +61,5 @@ def string(input:str, y_check:bool, check_time:bool):
     if check_time:
         draw.text_output("Translated string in " + str(time.time() - start_time) + "ms")
     
+    # Returns the final result as a string
     return str.capitalize(' '.join(result))

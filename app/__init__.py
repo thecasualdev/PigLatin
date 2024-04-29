@@ -51,8 +51,45 @@ def string_menu():
             draw.text_output("Closing application...")
             exit()
 
-def file_menu():
-    print("FILE")
+def file_menu(lkd):
+
+    local_keep_d:bool = lkd
+
+    draw.text_output(f"Select from following options : 1) Input File, 2) Toggle Same Directory [{local_keep_d}], 3) Exit")
+    option = str.lower(draw.text_input("Select option"))
+
+    if option in ["input", "input file", "1", "i"]:
+
+        result = translate.file(args.file, args.output, y_check, local_keep_d)
+        draw.text_output("Translation and can be found at ::" + result.name)
+
+        if config.getboolean('general', 'auto_run'):
+            file_menu(local_keep_d)
+            
+        else:
+    
+            check = str.lower(draw.text_input("Do you wish to run again? [y/n]"))
+            if check in ['y', 'yes', 'true']:
+                string_menu()
+            
+            else:
+                draw.text_output("Closing application...")
+                exit()
+        
+    elif option in ["toggle", "toggle same directory", "2", "t"]:
+
+        if local_keep_d:
+            local_keep_d = False
+            file_menu(local_keep_d)
+
+        else:
+            local_keep_d = True
+            file_menu(local_keep_d)
+        
+    elif option in ["exit", "close", "3", "e"]:
+        draw.text_output("Closing application...")
+        exit()
+
 
 class app:
 
@@ -123,7 +160,7 @@ class app:
             string_menu()
         
         elif option in ["file", "file translate", "2", "f"]:
-            file_menu()
+            file_menu(keep_d)
         
         elif option in ["exit", "close", "3", "e"]:
             draw.text_output("Closing application...")

@@ -20,7 +20,8 @@ def generate_config():
     config.add_section("output")
 
     config.set("general", "y_check", "True")
-    config.set("general", "auto_run", "True") 
+    config.set("general", "auto_run", "False")
+    config.set("general", "clean_terminal", "False")
     config.set("output", "directory", "./output")
     config.set("output", "keep-directory", "False")
     config.set("output", "translate-name", "False")

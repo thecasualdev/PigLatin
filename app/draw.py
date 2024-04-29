@@ -3,11 +3,18 @@
 # I might not be able to make it a GUI or use Colorama but it sure as hell will look pretty.
 
 def text_output (content) :
-    print ("# " + str(content))
+    print (f"# {str(content)}")
 
 def text_input (content) :
-    value = input("# " + str(content) + " > ") 
+    value = input(f"# {str(content)} > ") 
     return value
+
+def title (content) :
+    title = ("│     " + str.title(content) + "     │") 
+    print("┌" + "―" * int(len(title) - 2) + "┐")
+    print(title)
+    print("└" + "―" * int(len(title) - 2) + "┘")
+    print()
 
 def progress_bar (progress, total) :
 

@@ -10,6 +10,7 @@ This is a simple Pig Latin translator the I created for school.
 - [ ] Simple module to toggle Y checking (allows the script to differentiate between Y as a vowel & Y as a consonant)
 - [x] Output file, or custom destination
 - [x] Way to seperate main symbols from text (semi-support, just ignores all other characters)
+- [x] Option to generate new file within the same directory
 - [ ] Console menu
 - [ ] Fix loading screen for translating files
 

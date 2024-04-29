@@ -67,13 +67,16 @@ def string(input:str, y_check:bool, check_time:bool):
     # Returns the final result as a string
     return str.capitalize(' '.join(result))
 
-def file(input:str, output:str, y_check:bool):
+def file(input:str, output:str, y_check:bool, keep_d:bool):
 
     # Runs at the start of the function, creating a checkpoint for current time and a empty list
     start_time = time.time()
 
     config = settings.load_config()   
     output = output or config.get('output', 'directory')
+
+    if keep_d:
+        output = os.path.dirname(input)
 
     # First we do some basic checks, veryfying the exsistance of the provided files
     if not os.path.exists(input):

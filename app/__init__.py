@@ -17,6 +17,7 @@ parser.add_argument('-F', '--file', help="Used to translate entire files, only s
 parser.add_argument('-y', '--ycheck', action=argparse.BooleanOptionalAction, help="Toggle the function that differentiates between Y as a vowel & Y as a consonant")
 parser.add_argument('-o', '--output', help="Set a unique output location (used for translating files)")
 parser.add_argument('-s', '--setup', help="Used to generate defualt config file and output folder", action="store_true")
+parser.add_argument('-k', '--keepd', action=argparse.BooleanOptionalAction, help="Quick argument to create new file in the same directory as input txt file")
 
 class app:
 
@@ -30,6 +31,7 @@ class app:
     config = settings.load_config()
 
     y_check = args.ycheck or config.getboolean('general', 'y_check')
+    keep_d = args.keepd or config.getboolean('output', 'keep-directory')
     auto_run = config.getboolean('general', 'auto_run')
     
     # Safe argument checker, closes the application if 
@@ -41,6 +43,11 @@ class app:
 
     if args.output and not args.file:
         draw.text_output("The output argument requires the file argument")
+        draw.text_output("write `-h` to learn more about arguments")
+        exit()
+    
+    if args.keepd and not args.file:
+        draw.text_output("The keep directory argument requires the file argument")
         draw.text_output("write `-h` to learn more about arguments")
         exit()
 
@@ -71,7 +78,7 @@ class app:
         else:
             draw.text_output("Starting translation" + args.file)
 
-        result = translate.file(args.file, args.output, y_check)
+        result = translate.file(args.file, args.output, y_check, keep_d)
         draw.text_output("Translation and can be found at ::" + result.name)
         exit()
 

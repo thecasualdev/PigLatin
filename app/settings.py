@@ -23,6 +23,7 @@ def generate_config():
     config.set("general", "auto_run", "True") 
     config.set("output", "directory", "./output")
     config.set("output", "keep-directory", "False")
+    config.set("output", "translate-name", "False")
 
     with open("config.init", 'w') as file:
         config.write(file)

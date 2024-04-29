@@ -75,6 +75,7 @@ def file(input:str, output:str, y_check:bool, keep_d:bool):
     config = settings.load_config()   
     output = output or config.get('output', 'directory')
 
+    # Checks if KeepD is enabled, if so sets directory to the files current directory
     if keep_d:
         output = os.path.dirname(input)
 
@@ -94,24 +95,34 @@ def file(input:str, output:str, y_check:bool, keep_d:bool):
     # Followed with making sure that the file is the correct file type
     file = os.path.basename(input)
     name, extension = os.path.splitext(file)
+
+    name_out = name + "_piglatin"
+
+    if config.getboolean("output", "translate-name"):
+        name_out = string(name, y_check, False)
     
     if not extension.lower() == '.txt':
         draw.text_output("File is not supported, please make sure file is a txt")
 
     draw.text_output("Opening file")
 
+    # This begins the sequence by opening the file, and generating the result file to write too
     file_open = open(input, 'r')
-    file_result = open(output + "/" + name + "_piglatin.txt", 'w')
+    file_result = open(output + "/" + name_out + ".txt" , 'w')
 
+    # This will loop through the opened file by sentance (line) and feed it through the preexisting single string function made above.
+    # It then writes the result to the file_result file
     for sentance in file_open:
         translated = string(sentance, y_check, False)
         file_result.write(translated + '\n')
     
     draw.text_output("Writing to file")
 
+    # Closes both of the files
     file_open.close
     file_result.close
 
     draw.text_output("Translated file in " + str(time.time() - start_time) + "ms")
 
+    # And returns the directory to the user
     return file_result

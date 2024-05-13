@@ -119,8 +119,8 @@ def file(input:str, output:str, y_check:bool, keep_d:bool):
     draw.text_output("Writing to file")
 
     # Closes both of the files
-    file_open.close
-    file_result.close
+    file_open.close()
+    file_result.close()
 
     draw.text_output("Translated file in " + str(time.time() - start_time) + "ms")
 

@@ -60,7 +60,10 @@ def file_menu(lkd):
 
     if option in ["input", "input file", "1", "i"]:
 
-        result = translate.file(args.file, args.output, y_check, local_keep_d)
+        file:str = draw.text_input("Put file directory")
+        output:str = draw.text_input("Output directory")
+
+        result = translate.file(file, output, y_check, local_keep_d)
         draw.text_output("Translation and can be found at ::" + result.name)
 
         if config.getboolean('general', 'auto_run'):
@@ -70,7 +73,7 @@ def file_menu(lkd):
     
             check = str.lower(draw.text_input("Do you wish to run again? [y/n]"))
             if check in ['y', 'yes', 'true']:
-                string_menu()
+                file_menu(keep_d)
             
             else:
                 draw.text_output("Closing application...")

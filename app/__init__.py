@@ -151,7 +151,7 @@ class app:
         draw.text_output("Welcome to the most simple yet overengineered translator")
         draw.text_output("By Jack M.")
 
-        draw.text_output("")
+        print()
 
         draw.text_output("Please select from the following options : 1) String Translate, 2) File Translate, 3) Exit")
         option = str.lower(draw.text_input("Select option"))

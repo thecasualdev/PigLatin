@@ -107,7 +107,7 @@ def file(input:str, output:str, y_check:bool, keep_d:bool):
     draw.text_output("Opening file")
 
     # This begins the sequence by opening the file, and generating the result file to write too
-    file_open = open(input, 'r')
+    file_open = open(input, 'r', encoding="utf8")
     file_result = open(output + "/" + name_out + ".txt" , 'w')
 
     # This will loop through the opened file by sentance (line) and feed it through the preexisting single string function made above.

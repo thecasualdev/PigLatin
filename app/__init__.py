@@ -55,7 +55,7 @@ def file_menu(lkd):
 
     local_keep_d:bool = lkd
 
-    draw.text_output(f"Select from following options : 1) Input File, 2) Toggle Same Directory [{local_keep_d}], 3) Exit")
+    draw.text_output(f"Select from following options : 1) Input File | 2) Toggle Same Directory [{local_keep_d}] | 3) Exit")
     option = str.lower(draw.text_input("Select option"))
 
     if option in ["input", "input file", "1", "i"]:
@@ -156,7 +156,7 @@ class app:
 
         print()
 
-        draw.text_output("Please select from the following options : 1) String Translate, 2) File Translate, 3) Exit")
+        draw.text_output("Please select from the following options : 1) String Translate | 2) File Translate | 3) Exit")
         option = str.lower(draw.text_input("Select option"))
 
         if option in ["string", "string translate", "1", "s"]:

@@ -61,7 +61,7 @@ def file_menu(lkd):
     if option in ["input", "input file", "1", "i"]:
 
         file:str = draw.text_input("Put file directory")
-        output:str = draw.text_input("Output directory")
+        output:str = draw.text_input("[leave blank to use folder defined in config] Output directory")
 
         result = translate.file(file, output, y_check, local_keep_d)
         draw.text_output("Translation and can be found at ::" + result.name)

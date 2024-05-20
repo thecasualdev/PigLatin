@@ -12,7 +12,7 @@ config = configparser.ConfigParser()
 def generate_config():
     
     start_time = time.time()
-    
+
     if not os.path.exists('./output'):
         os.mkdir('./output')
 

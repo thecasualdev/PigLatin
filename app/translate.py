@@ -103,6 +103,7 @@ def file(input:str, output:str, y_check:bool, keep_d:bool):
     
     if not extension.lower() == '.txt':
         draw.text_output("File is not supported, please make sure file is a txt")
+        exit()
 
     draw.text_output("Opening file")
 

@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This project has been archived. Check out the rewrite I'm working on here: [PigLatin+](https://github.com/thecasualdev/PigLatinPlus)
+
 # Pig Latin Translator
 
 This is a simple Pig Latin translator the I created for school.

@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> This project has been archived. Check out the rewrite I'm working on here: [PigLatin+](https://github.com/thecasualdev/PigLatinPlus)
+> This project has been archived. Check out the rewrite I'm working on here: [PigLatin+](https://gitlab.com/thecasualdev/piglatin)
 
 # Pig Latin Translator
 
